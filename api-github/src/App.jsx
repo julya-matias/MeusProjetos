@@ -8,8 +8,8 @@ import { AppRoutes } from "./routes";
 import { GlobalStyle } from "./styles/global";
 import { Theme } from "./styles/Theme";
 
-export default function App() {
-  return (
+
+const App = () => (
     <BrowserRouter>
       <Theme>
         <AppRoutes />
@@ -17,5 +17,7 @@ export default function App() {
         <Normalize />
       </Theme>
     </BrowserRouter>
-  );
-}
+  )
+
+
+export default App

@@ -57,19 +57,17 @@ export const theme = {
     "4xl": rem(40),
     "5xl": rem(64),
   },
-  // breakpoints: {
-  //   xs: rem(0),
-  //   sm: rem(12),
-  //   md: rem(14),
-  //   base: rem(16),
-  //   lg: rem(18),
-  //   xl: rem(20),
-  // }
+  breakpoints: {
+    xs: rem(0),
+    sm: rem(12),
+    md: rem(14),
+    base: rem(16),
+    lg: rem(18),
+    xl: rem(20),
+  }
 };
 
-export function Theme({ children }) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
-}
+export const Theme = ({ children }) => <ThemeProvider theme={theme}>{children}</ThemeProvider>
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,
