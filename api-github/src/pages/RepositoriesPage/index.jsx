@@ -6,10 +6,22 @@ import Repositories from './Repositories'
 import Filter from './Filter'
 
 
-const RepositoriesPage = () => (
+const RepositoriesPage = () =>{
+  const user ={
+    login: 'julya-matias',
+    avatar_url: 'https://avatars.githubusercontent.com/u/66370170?v=4',
+    name: 'Julya Matias de Alcantara ',
+    company: 'Uerj',
+    blog: null ,
+    location: 'Nova Friburgo',
+    followers: 13,
+    following: 9,
+  }
+
+return(
  <Container>
       <Sidebar>
-        <Profile/>
+        <Profile user={user}/>
         <Filter/>
       </Sidebar>
       <Main>
@@ -17,5 +29,5 @@ const RepositoriesPage = () => (
       </Main>
     </Container>
 )
-
+}
 export default RepositoriesPage

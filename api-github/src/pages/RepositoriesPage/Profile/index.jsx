@@ -1,35 +1,54 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {MdGroup, MdLocationCity, MdWork, MdLink} from 'react-icons/md'
 import { Container, Header, Avatar, Login, Name, Inner, Data } from './styles'
 
 
-const Profile = () =>(
+const Profile = ({user}) =>(
 
   <Container>
     <Header>
-      <Avatar src = "https://avatars.githubusercontent.com/u/66370170?v=4"/>
-      <Login>julya-matias</Login>
-      <Name>Julya Matias</Name>
+      <Avatar src = {user.avatar_url}/>
+      <Name>{user.name}</Name>
+      <Login>{user.login}</Login>
     </Header>
     <Inner>
       <Data>
         <MdGroup size={20}/>
-        30&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;10&nbsp;<i>seguindo</i>
+        {user.followers}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;{user.following}&nbsp;<i>seguindo</i>
       </Data>
+      {user.company && (
       <Data>
-        <MdWork size={20}/> UERJ
+        <MdWork size={20}/> {user.company}
+      </Data>)}
+      {user.location && (
+      <Data>
+        <MdLocationCity size={20}/>{user.location}
       </Data>
-      <Data>
-        <MdLocationCity size={20}/>Nova Friburgo
-      </Data>
-      <Data>
-      <MdLink size={20}/>
-        <a href='https://github.com/julya-matias'>Meu GitHub</a>
-        </Data>
+      )}
+      {user.blog && (
+          <Data>
+            <MdLink size={20}/>
+            <a href={`\\${user.blog}`}>{user.blog}</a>
+            </Data>
+      )}
     </Inner>
   </Container>
 )
+
+Profile.propTypes ={
+  user: PropTypes.shape({
+    login: PropTypes.string.isRequired,
+    avatar_url: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    company: PropTypes.string.isRequired,
+    blog: PropTypes.string,
+    location: PropTypes.string.isRequired,
+    followers: PropTypes.number.isRequired,
+    following: PropTypes.number.isRequired,
+  }).isRequired,
+}
 
 
 export default Profile
