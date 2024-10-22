@@ -1,10 +1,16 @@
 import React from 'react'
 
 import { Container } from './styles'
+import Repository from './Repository'
 
 const Repositories = () => (
   <Container>
-    <h1>Repo</h1>
+    <Repository/>
+    <Repository/>
+    <Repository/>
+    <Repository/>
+    <Repository/>
+    <Repository/>
   </Container>
 
 )
